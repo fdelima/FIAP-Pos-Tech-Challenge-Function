@@ -18,8 +18,4 @@
 			<CopyToPublishDirectory>Never</CopyToPublishDirectory>
 		</None>
 	</ItemGroup>
-	<!--<ItemGroup>
-		<FunctionsPreservedDependencies Include="Microsoft.IdentityModel.Protocols.OpenIdConnect.dll"/>
-		<FunctionsPreservedDependencies Include="System.IdentityModel.Tokens.Jwt.dll"/>
-	</ItemGroup>-->
 </Project>

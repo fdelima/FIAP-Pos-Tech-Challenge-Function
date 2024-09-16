@@ -6,23 +6,13 @@ using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Protocols;
 using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json;
 using System;
 using System.IdentityModel.Tokens.Jwt;
-using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using System.Web.Http;
 
 namespace TokenValidationFunctionApp
 {
-    internal static class SecurityConfig
-    {
-        internal static string[] ValidIssuers = ["https://limatdx.b2clogin.com/4a69b13c-fd44-4eed-aebe-ba2646c68b54/v2.0/"];//["valid-issuer"];
-        internal static string[] ValidAudiences = ["4341b09b-10dd-4b50-aedd-84a2bf2727f0"];//["valid-audience"];
-        internal static string OpenIdConnectConfigurationUrl = "https://limatdx.b2clogin.com/limatdx.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_NEW_AND_LOGIN";//"https://<your-sign-in-provider>/v2.0/.well-known/openid-configuration";
-    }
-
     public static class TokenValidationFunction
     {
         [FunctionName("TokenValidationFunction")]
@@ -32,23 +22,7 @@ namespace TokenValidationFunctionApp
         {
             try
             {
-
-
                 logger.LogInformation("C# HTTP trigger function processed a request.");
-
-                string name = req.Query["name"];
-
-                string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-                dynamic data = JsonConvert.DeserializeObject(requestBody);
-                name = name ?? data?.name;
-
-                string responseMessage = string.IsNullOrEmpty(name)
-                    ? "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
-                    : $"Hello, {name}. This HTTP triggered function executed successfully.";
-
-                //return new OkObjectResult(responseMessage);
-
-                #region [ "aqui" ]
 
                 if (req.Headers.ContainsKey("Authorization"))
                 {
@@ -71,7 +45,6 @@ namespace TokenValidationFunctionApp
                     logger.LogInformation($"Missing authorization token on request.");
                     return new UnauthorizedObjectResult(new { Message = "Missing authorization token on request." });
                 }
-                #endregion
 
             }
             catch (Exception ex)
