@@ -6,6 +6,10 @@ on:
   pull_request: 
     branches: [ "develop", "main" ]
 
+permissions:
+  id-token: write
+  contents: read    
+
 jobs:
   deploy-terraform-infrastructure-in-azure:
     #runs-on: self-hosted
