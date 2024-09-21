@@ -1,10 +1,8 @@
 name: Terraform In Azure with User-assigned Managed Identity 
 
 on:
-  push:
-    branches: [ "feature/pipeline" ]
   pull_request: 
-    branches: [ "develop", "main" ]
+    branches: [ "main" ]
 
 permissions:
   id-token: write
@@ -13,14 +11,7 @@ permissions:
 jobs:
   deploy-terraform-infrastructure-in-azure:
     runs-on: self-hosted    
-    #environment: production
 
-    # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    #defaults:
-      #run:
-        #shell: bash
-        #working-directory: './Src/Azure/Infra'
-        
     steps:
       - name: Azure login
         uses: azure/login@v2
@@ -30,9 +21,6 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           enable-AzPSSession: true
-        
-      #- name: Terraform
-      #  run: terraform --help
         
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout
@@ -56,11 +44,6 @@ jobs:
         working-directory: ./Src/Azure/Infra
         run: terraform init
         
-      # Checks that all Terraform configuration files adhere to a canonical format
-      #- name: Terraform Format
-      #  working-directory: ./Src/Azure/Infra
-      #  run: terraform fmt -check
-  
       # Generates an execution plan for Terraform
       - name: Terraform Plan
         working-directory: ./Src/Azure/Infra
