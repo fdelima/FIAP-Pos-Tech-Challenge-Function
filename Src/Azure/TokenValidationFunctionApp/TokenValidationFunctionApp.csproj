@@ -5,6 +5,7 @@
 		<_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
 	</PropertyGroup>
 	<ItemGroup>
+		<FrameworkReference Include="Microsoft.NETCore.App" />
 		<PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.0.2" />
 		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.1" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
