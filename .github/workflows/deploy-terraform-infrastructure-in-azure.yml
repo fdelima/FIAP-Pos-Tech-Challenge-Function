@@ -39,10 +39,11 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Directory
-        run: pwd
+        run: ${{ github.workspace }}
         
-      - name: Content Directory
-        run: ls  
+      - name: List files in the repository
+        run: |
+            ls ${{ github.workspace }}
         
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup Terraform
