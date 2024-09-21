@@ -45,7 +45,7 @@ resource "azurerm_application_insights" "linux-application-insights" {
   application_type    = "other"
 }
 
-resource "azurerm_linux_function_app" "linux-python-linux-function-app" {
+resource "azurerm_linux_function_app" "linux-dotnet-linux-function-app" {
   name                = var.azurerm_linux_function_app
   resource_group_name = azurerm_resource_group.linux-function-rg.name
   location            = azurerm_resource_group.linux-function-rg.location
@@ -80,5 +80,5 @@ output "service_plan_id" {
 }
 
 output "linux_function_app_id" {
-  value = azurerm_linux_function_app.linux-python-linux-function-app.id
+  value = azurerm_linux_function_app.linux-dotnet-linux-function-app.id
 }

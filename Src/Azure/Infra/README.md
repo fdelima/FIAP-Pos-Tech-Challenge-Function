@@ -4,7 +4,7 @@
 
 # Terraform Azure Function App Deployment
 
-This Terraform configuration sets up Azure resources for deploying a Linux-based Function App running Python.
+This Terraform configuration sets up Azure resources for deploying a Linux-based Function App running dotnet.
 
 ## Resources Created
 
@@ -12,7 +12,7 @@ This Terraform configuration sets up Azure resources for deploying a Linux-based
 2. **Storage Account**: A storage account for the Function App.
 3. **Service Plan**: The service plan for the Function App.
 4. **Application Insights**: Integration with Azure Application Insights.
-5. **Linux Function App**: The Linux-based Function App running Python.
+5. **Linux Function App**: The Linux-based Function App running .Net.
 
 ## Variables
 
