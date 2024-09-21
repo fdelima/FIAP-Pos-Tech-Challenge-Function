@@ -30,12 +30,6 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           enable-AzPSSession: true
-
-      - name: Directory
-        run: pwd
-        
-      - name: Content Directory
-        run: ls
         
       - name: Terraform
         run: terraform --help
@@ -43,7 +37,13 @@ jobs:
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout
         uses: actions/checkout@v4
-  
+      
+      - name: Directory
+        run: pwd
+        
+      - name: Content Directory
+        run: ls  
+        
       # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
