@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v4
       
       - name: Directory
-        run: ${{ github.workspace }}
+        run: echo '${{ github.workspace }}'
         
       - name: List files in the repository
         run: |
