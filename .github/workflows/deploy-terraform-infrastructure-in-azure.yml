@@ -2,7 +2,7 @@ name: Terraform In Azure with User-assigned Managed Identity
 
 on:
   push:
-    branches: [ "feature/pipelline" ]
+    branches: [ "feature/pipeline" ]
   pull_request: 
     branches: [ "develop", "main" ]
 
