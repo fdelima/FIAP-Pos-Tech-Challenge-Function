@@ -34,6 +34,9 @@ jobs:
       - name: Directory
         run: pwd
         
+      - name: Content Directory
+        run: ls
+        
       - name: Terraform
         run: terraform --help
         
