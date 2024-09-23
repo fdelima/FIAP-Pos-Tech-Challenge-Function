@@ -15,7 +15,7 @@ namespace TokenValidationFunctionApp
 {
     public static class TokenValidationFunction
     {
-        [FunctionName("TokenValidationFunction")]
+        [FunctionName("FnTokenValidation")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger logger)
