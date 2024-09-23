@@ -3,16 +3,14 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<AzureFunctionsVersion>v4</AzureFunctionsVersion>
 		<_FunctionsSkipCleanOutput>true</_FunctionsSkipCleanOutput>
-		<_HasReferenceToSystemRuntime>true</_HasReferenceToSystemRuntime>
+		<!--<_HasReferenceToSystemRuntime>true</_HasReferenceToSystemRuntime>-->
 	</PropertyGroup>
 	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<!-- Other packages may also be in this list -->
 		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.1" />
 		<PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.0.2" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
-		<!--<PackageReference Include="System.Security.Claims" Version="4.3.0" />-->
-		<!--<Reference Include="System.Security.Claims">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Reference>-->
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="host.json">
@@ -22,5 +20,8 @@
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 			<CopyToPublishDirectory>Never</CopyToPublishDirectory>
 		</None>
+	</ItemGroup>
+	<ItemGroup>
+		<Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
 	</ItemGroup>
 </Project>
