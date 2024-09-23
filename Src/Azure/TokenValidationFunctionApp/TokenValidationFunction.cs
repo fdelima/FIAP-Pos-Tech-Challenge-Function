@@ -50,18 +50,9 @@ namespace TokenValidationFunctionApp
             }
             catch (Exception ex)
             {
-                var erro = new StringBuilder(ex.Message);
-                erro.AppendLine(SecurityConfig.ValidIssuers.Length.ToString());
-                erro.AppendLine(SecurityConfig.ValidIssuers[0]);
-                erro.AppendLine(SecurityConfig.ValidAudiences.Length.ToString());
-                erro.AppendLine(SecurityConfig.ValidAudiences[0]);
-                erro.AppendLine(SecurityConfig.OpenIdConnectConfigurationUrl);
-
                 logger.LogError(ex.Message);
-                return new BadRequestObjectResult(new { Message = erro.ToString() /*"Ops! Ocorreu um erro inesperado!" */});
+                return new BadRequestObjectResult(new { Message = "Ops! Ocorreu um erro inesperado!" });
             }
-
-
         }
 
         private static bool ValidateToken(string token, out ClaimsPrincipal? principal, ILogger logger)
