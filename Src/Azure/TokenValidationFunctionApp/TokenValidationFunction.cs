@@ -50,7 +50,7 @@ namespace TokenValidationFunctionApp
             catch (Exception ex)
             {
                 logger.LogError(ex.Message);
-                return new BadRequestObjectResult(new { Message = "Ops! Ocorreu um erro inesperado!" });
+                return new BadRequestObjectResult(new { Message = ex.Message /*"Ops! Ocorreu um erro inesperado!" */});
             }
 
 
