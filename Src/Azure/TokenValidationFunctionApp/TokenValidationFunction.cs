@@ -8,7 +8,9 @@ using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace TokenValidationFunctionApp
@@ -49,8 +51,15 @@ namespace TokenValidationFunctionApp
             }
             catch (Exception ex)
             {
+                var erro = new StringBuilder(ex.Message);
+                erro.AppendLine(SecurityConfig.ValidIssuers.Length.ToString());
+                erro.AppendLine(SecurityConfig.ValidIssuers[0]);
+                erro.AppendLine(SecurityConfig.ValidAudiences.Length.ToString());
+                erro.AppendLine(SecurityConfig.ValidAudiences[0]);
+                erro.AppendLine(SecurityConfig.OpenIdConnectConfigurationUrl);
+
                 logger.LogError(ex.Message);
-                return new BadRequestObjectResult(new { Message = ex.Message /*"Ops! Ocorreu um erro inesperado!" */});
+                return new BadRequestObjectResult(new { Message = erro.ToString() /*"Ops! Ocorreu um erro inesperado!" */});
             }
 
 
