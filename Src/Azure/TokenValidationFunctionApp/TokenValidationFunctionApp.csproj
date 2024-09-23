@@ -7,10 +7,11 @@
 	<ItemGroup>
 		<PackageReference Include="Microsoft.NET.Sdk.Functions" Version="4.4.1" />
 		<PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="8.0.2" />
-		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2"  />
-		<Reference Include="System.Security.Claims">
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
+		<PackageReference Include="System.Security.Claims" Version="4.3.0" />
+		<!--<Reference Include="System.Security.Claims">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Reference>
+		</Reference>-->
 	</ItemGroup>
 	<ItemGroup>
 		<None Update="host.json">
