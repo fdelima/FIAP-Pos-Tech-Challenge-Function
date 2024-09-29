@@ -1,7 +1,9 @@
-name: Terraform In Azure with User-assigned Managed Identity 
+name: Terraform In Azure with User-assigned Managed Identity
 
 on:
-  pull_request: 
+  push:
+    branches: [ "develop" ]
+  pull_request:
     branches: [ "main" ]
 
 permissions:

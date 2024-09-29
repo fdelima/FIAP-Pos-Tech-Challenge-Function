@@ -1,8 +1,15 @@
 name: Build and deploy .NET Core application to Function App token-validation-function-app
+
 on:
   push:
-    branches:
-    - feature/pipeline
+    branches: [ "develop" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_run:
+    workflows: ["Terraform In Azure with User-assigned Managed Identity"]
+    types:
+      - completed
+
 env:
   AZURE_FUNCTIONAPP_NAME: token-validation-function-app
   AZURE_FUNCTIONAPP_PACKAGE_PATH: ./published
